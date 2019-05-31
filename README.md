@@ -53,23 +53,23 @@ Things you need:
     threshold. This step also produces a summary table detailing the number of
     homologs remaining per species per gene.
 
->   All cases where only a single homolog remains per species are considered
->   high priority candidates for single copy orthologs suitable for phylogenetic
->   analysis. Filtering based on taxa completeness is recommended at this stage
->   (e.g. 80% of the study taxa have this single copy ortholog assembled). These
->   high priority gene alignments need to visually inspected and assessed for
->   hidden paralogs using, for instance, pipelines such as TreSPex (REF).
+    All cases where only a single homolog remains per species are considered
+    high priority candidates for single copy orthologs suitable for phylogenetic
+    analysis. Filtering based on taxa completeness is recommended at this stage
+    (e.g. 80% of the study taxa have this single copy ortholog assembled). These
+    high priority gene alignments need to visually inspected and assessed for
+    hidden paralogs using, for instance, pipelines such as TreSPex (REF).
 
->   In addition to the high priority candidate genes, secondary candidate genes
->   can be identified whereby the majority of taxa are single copy. Manually
->   reviewing these alignments may reveal that where multiple homologs exist for
->   a given taxa, these will either 1) true paralogs, 2) contaminants or 3) or
->   the result of erroneous contigs containing highly similar domains to a
->   reference genes. Simple manual editing (deletion of identified erroneous
->   homologs) renders the resulting geneof the latter two cases would result in
->   that gene being designated high priority, worth of further screening.
+    In addition to the high priority candidate genes, secondary candidate genes
+    can be identified whereby the majority of taxa are single copy. Manually
+    reviewing these alignments may reveal that where multiple homologs exist for
+    a given taxa, these will either 1) true paralogs, 2) contaminants or 3) or
+    the result of erroneous contigs containing highly similar domains to a
+    reference genes. Simple manual editing (deletion of identified erroneous
+    homologs) renders the resulting geneof the latter two cases would result in
+    that gene being designated high priority, worth of further screening.
 
-1.  **SUBSET** – Once all high priority genes have been identified and edited
+5.  **SUBSET** – Once all high priority genes have been identified and edited
     where appropriate, this module will produce the final alignments, one for
     each gene in fasta format, and a supermatrix in fasta/nexus (with CHAR SET
     defined)/phylip format.
