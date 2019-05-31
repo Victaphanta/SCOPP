@@ -8,9 +8,7 @@ Adnan Moussalli, Liz Milla
 
 This workflow is essentially a BASH wrapper around a selection of established
 programs and in-house scripts that screens multiple transcriptome assemblies for
-single copy othologous genes. There are across multiple take you from raw
-high-throughput (e.g. illumina) sequence data to final alignments ready for
-downstream phylogenetic analyses.
+single copy othologous genes.
 
 For those interested in exploring the currently stable release, I have provided
 a bash script for the installation of all dependencies.
@@ -62,6 +60,16 @@ Things you need:
 >   high priority gene alignments need to visually inspected and assessed for
 >   hidden paralogs using, for instance, pipelines such as TreSPex (REF).
 
-1.  **SUBSET** - this module will produce a seprate alignment for each targeted
-    exon (fasta files), and 'all exons combined' supermatrix files in
-    fasta/nexus (with CHAR SET defined)/phylip format.
+>   In addition to the high priority candidate genes, secondary candidate genes
+>   can be identified whereby the majority of taxa are single copy. Manually
+>   reviewing these alignments may reveal that where multiple homologs exist for
+>   a given taxa, these will either 1) true paralogs, 2) contaminants or 3) or
+>   the result of erroneous contigs containing highly similar domains to a
+>   reference genes. Simple manual editing (deletion of identified erroneous
+>   homologs) renders the resulting geneof the latter two cases would result in
+>   that gene being designated high priority, worth of further screening.
+
+1.  **SUBSET** – Once all high priority genes have been identified and edited
+    where appropriate, this module will produce the final alignments, one for
+    each gene in fasta format, and a supermatrix in fasta/nexus (with CHAR SET
+    defined)/phylip format.
