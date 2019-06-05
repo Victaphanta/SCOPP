@@ -16,14 +16,14 @@ species_list = open(sys.argv[2]).read().splitlines();print (species_list)
 fastadict = dict()
 
 for species in species_list:
-    fastafile = "0_assemblies/" + species + ".trinity.NI.fasta"
+    fastafile = "1_assemblies/" + species + ".trinity.NI.fasta"
 #    species = fastafile.strip().split('.trinity.NI')[0];print (species)
     with open(fastafile, 'r') as fasta_open:
         for line in fasta_open:
             if '>' in line:
                 name = line.strip().split(' ')[0][1:]
                 fastadict[name] = next(fasta_open).strip();
-    last_file = "1_last/" + species + ".trinity.NI.LASTAL.TAB.Qlocal.plusblast.tophit.txt"
+    last_file = "2_last/" + species + ".trinity.NI.LASTAL.TAB.Qlocal.plusblast.tophit.txt"
     lastfile_open = open(last_file, 'r')
     for line in lastfile_open:
         info = line.strip().split('\t');
@@ -39,7 +39,7 @@ for species in species_list:
         prev_neg_frameshift = "no"
         if db in gene_list:
             #print (start)
-            CDS_filename = "2_homolog/" + db + ".homologs.fasta"
+            CDS_filename = "3_homolog/" + db + ".homologs.fasta"
             with open(CDS_filename, "a+") as gen_fh:
                 if strand == '-':
                     seq = reverse_complement(seq)

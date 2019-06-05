@@ -1,4 +1,4 @@
-**SCOPP**
+# **SCOPP**
 
 Single Cope Orthology Pipeline for Phylogenetics
 

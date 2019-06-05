@@ -1,0 +1,35 @@
+# Remove adapters, quality trim reads and assemble using TRINITY
+./SCOPP_1.0.0.sh -m cleanassemble \
+-a /media/sheldonia/Data/ORTHOLOGY/001_DEVELOPMENT_SCOPP/0_raw \
+-s SpeciesList.6.txt \
+-p 50 \
+2>&1 |tee test.CLEANASSEMBLE.log
+
+#  Find homologous hits based on aa Reference
+./SCOPP_1.0.0.sh -m last \
+-r Reference.aa.fasta \
+-s SpeciesList.6.txt \
+2>&1 |tee test.LAST.log
+
+#Collate homologs across species and align
+./SCOPP_1.0.0.sh -m homolog \
+-s SpeciesList.6.txt \
+-g GeneLlist.40.txt  \
+2>&1 |tee test.HOMOLOG.log
+
+#Collapse homolog alignments
+./SCOPP_1.0.0.sh -m consensus \
+-s SpeciesList.6.txt \
+-g GeneLlist.40.txt \
+2>&1 |tee test.04.CONSENSUS.log
+
+# Assess 1:1 alignments for hidden paralogs.  
+# Also, if desired, assess if true paralogs exist in cases of 1:many.  
+# Proceed oncce candidate subset of 1:1 orthologous genes has been determined.
+
+./SCOPP_1.0.0.sh -m subsettrimpre \
+-s SpeciesList.6.txt \
+-g GeneLlist.40.txt \
+-t SpeciesList.6.txt \
+-x GeneLlist.40.subset.27.txt \
+2>&1 |tee test.05.subset.log
